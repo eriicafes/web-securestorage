@@ -59,7 +59,3 @@ jobs:
         with:
           publish: pnpm changeset tag
           createGithubReleases: false
-
-      - name: Push Release Tags
-        if: steps.changesets.outputs.published == 'true'
-        run: git push --follow-tags
