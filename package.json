@@ -51,13 +51,6 @@
     "url": "https://github.com/eriicafes/securestorage/issues"
   },
   "homepage": "https://github.com/eriicafes/securestorage#readme",
-  "devEngines": {
-    "packageManager": {
-      "name": "pnpm",
-      "version": "^11.9.0",
-      "onFail": "download"
-    }
-  },
   "devDependencies": {
     "@changesets/cli": "^2.31.1",
     "h3": "^2.0.1-rc.25",
