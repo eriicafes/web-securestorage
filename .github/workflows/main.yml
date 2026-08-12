@@ -9,17 +9,18 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  id-token: write
 
 jobs:
   build:
     name: Test and Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v6
 
-      - uses: pnpm/action-setup@v6
+      - uses: pnpm/action-setup@v4
         with:
-          version: 11
+          version: 10
 
       - uses: actions/setup-node@v6
         with:
@@ -40,16 +41,17 @@ jobs:
     if: ${{ github.event_name == 'push' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v6
 
-      - uses: pnpm/action-setup@v6
+      - uses: pnpm/action-setup@v4
         with:
-          version: 11
+          version: 10
 
       - uses: actions/setup-node@v6
         with:
           node-version: 24
           cache: "pnpm"
+          registry-url: "https://registry.npmjs.org"
 
       - run: pnpm install --frozen-lockfile
 
@@ -57,9 +59,6 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: pnpm changeset tag
-          createGithubReleases: false
-
-      - name: Push Release Tags
-        if: steps.changesets.outputs.published == 'true'
-        run: git push --follow-tags
+          publish: pnpm release
+        env:
+          NPM_CONFIG_PROVENANCE: true
