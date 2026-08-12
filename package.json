@@ -45,12 +45,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eriicafes/securestorage.git"
+    "url": "git+https://github.com/eriicafes/web-securestorage.git"
   },
   "bugs": {
-    "url": "https://github.com/eriicafes/securestorage/issues"
+    "url": "https://github.com/eriicafes/web-securestorage/issues"
   },
-  "homepage": "https://github.com/eriicafes/securestorage#readme",
+  "homepage": "https://github.com/eriicafes/web-securestorage#readme",
   "devDependencies": {
     "@changesets/cli": "^2.31.1",
     "h3": "^2.0.1-rc.25",
